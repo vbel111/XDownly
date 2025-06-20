@@ -290,7 +290,7 @@ def stream_video():
         # Stream the video to the client
         def generate():
             with requests.get(video_url, stream=True) as r:
-                for chunk in r.iter_content(chunk_size=8192):
+                for chunk in r.iter_content(chunk_size=1048576):  # 1 MB
                     if chunk:
                         yield chunk
 
